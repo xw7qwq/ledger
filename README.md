@@ -1,10 +1,10 @@
 # ledger
 
-xw7 的记账：beancount 账本加 Fava 网页，只能经 Cloudflare Tunnel 和 Access 访问。旁边的定时任务把收支汇总推给[面板](https://lucius7.dev/me/ledger/)，并把账本备份到私有仓库。
+xw7 的记账：beancount 账本加 Fava 网页，只能经 Cloudflare Tunnel 和 Access 访问。旁边的定时任务把收支汇总推给[面板](https://panel.lucius7.dev/me/ledger/)，并把账本备份到私有仓库。
 
 **账本本身不在这个仓库。** 这里只有部署配置、定时任务和一份虚构的[示例账本](example/main.beancount)；真实账本放在服务器的数据目录里，备份到私有仓库 `xw7qwq/ledger-data`。
 
-[面板记账页](https://lucius7.dev/me/ledger/) · [Fava](https://fava.lucius7.dev/) · [组织](https://github.com/xw7qwq)
+[面板记账页](https://panel.lucius7.dev/me/ledger/) · [Fava](https://fava.lucius7.dev/) · [组织](https://github.com/xw7qwq)
 
 ## 组成
 
@@ -54,7 +54,7 @@ docker compose logs --tail 50 jobs
 
 ## 推送到面板
 
-面板从不连接这台服务器。`jobs` 按 schema 1 生成快照推到 `POST https://lucius7.dev/api/v1/ingest/ledger`：
+面板从不连接这台服务器。`jobs` 按 schema 1 生成快照推到 `POST https://panel.lucius7.dev/api/v1/ingest/ledger`：
 
 - `balances`：资产和负债账户的余额，按账本里最新的价格折算成主币种（第一个 `operating_currency`）；
 - `monthly`：每月每个收入、支出账户的发生额，按交易当天的价格折算，沿用 beancount 的符号（收入为负、支出为正）；
