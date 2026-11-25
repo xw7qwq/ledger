@@ -1,4 +1,4 @@
-"""Push the ledger snapshot to the lucius7.dev panel (POST /api/v1/ingest/ledger).
+"""Push the ledger snapshot to the panel at panel.lucius7.dev (POST /api/v1/ingest/ledger).
 
 The panel never connects to this server. A push happens when the snapshot
 content changes (as_of moves every day in UTC+8, so at least daily); the
@@ -18,7 +18,7 @@ from urllib.parse import urlsplit
 
 from . import state
 
-DEFAULT_URL = "https://lucius7.dev/api/v1/ingest/ledger"
+DEFAULT_URL = "https://panel.lucius7.dev/api/v1/ingest/ledger"
 USER_AGENT = "ledger-panel-push/1 (+https://github.com/xw7qwq/ledger)"
 RETRY_BASE_SECONDS = 300
 RETRY_MAX_SECONDS = 6 * 3600
